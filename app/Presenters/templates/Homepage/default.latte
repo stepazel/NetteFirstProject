@@ -10,5 +10,5 @@
     </div>
     {/foreach}
 
-    <a n:href="Post:create">Napsat nový příspěvek</a>
+    <a n:href="Post:create" n:if="$user->loggedIn">Napsat nový příspěvek</a>
 {/block}

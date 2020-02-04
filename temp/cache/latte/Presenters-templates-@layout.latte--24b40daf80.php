@@ -62,6 +62,20 @@ class Template24b40daf80 extends Latte\Runtime\Template
 ?>
 	</div>
 
+	<ul class="navig">
+		<li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:")) ?>">Články</a></li>
+<?php
+		if ($user->loggedIn) {
+			?>			<li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:out")) ?>">Odhlásit</a></li>
+<?php
+		}
+		else {
+			?>			<li><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Sign:in")) ?>">Přihlásit</a></li>
+<?php
+		}
+?>
+	</ul>
+
 <?php
 		$this->renderBlock('scripts', get_defined_vars());
 ?>
@@ -96,7 +110,7 @@ class Template24b40daf80 extends Latte\Runtime\Template
 ?>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 31 */ ?>/js/main.js"></script>
+	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 40 */ ?>/js/main.js"></script>
 <?php
 	}
 

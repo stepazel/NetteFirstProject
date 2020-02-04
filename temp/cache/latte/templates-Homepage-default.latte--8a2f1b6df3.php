@@ -60,8 +60,12 @@ class Template8a2f1b6df3 extends Latte\Runtime\Template
 		}
 ?>
 
-    <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Post:create")) ?>">Napsat nový příspěvek</a>
 <?php
+		if ($user->loggedIn) {
+			?>    <a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Post:create")) ?>">Napsat nový příspěvek</a>
+<?php
+		}
+		
 	}
 
 
